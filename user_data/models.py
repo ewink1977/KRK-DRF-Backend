@@ -12,8 +12,8 @@ class UserProfile(models.Model):
     )
     position = models.CharField(max_length=255, blank=True)
     bio = models.TextField(blank=True)
-    image = ProcessedImageField(default='media/profilePics/default.jpg',
-                                upload_to='media/profilePics',
+    image = ProcessedImageField(default='profilePics/default.jpg',
+                                upload_to='profilePics',
                                 processors=[ResizeToFit(500, 500)],
                                 format='JPEG',
                                 options={'quality': 100}
