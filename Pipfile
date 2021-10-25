@@ -10,6 +10,8 @@ python-dotenv = "*"
 psycopg2-binary = "*"
 autopep8 = "*"
 django-rest-knox = "*"
+django-imagekit = "*"
+pillow = "*"
 
 [dev-packages]
 
