@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFit
 
-
 class UserProfile(models.Model):
     user = models.OneToOneField(
         User,
