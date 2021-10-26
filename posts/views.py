@@ -12,9 +12,10 @@ class AllPostViewSet(APIView):
         permissions.AllowAny
     ]
 
-    def get(self, request, format=None):
+
+    def get(self, request):
         posts = Post.objects.filter(is_reply=False).order_by('created_at')
-        serializer = PostSerializer(posts)
+        serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
 
 class AllReplyViewSet(APIView):
@@ -22,9 +23,9 @@ class AllReplyViewSet(APIView):
         permissions.AllowAny
     ]
 
-    def get(request, parent_id, *args, **kwargs):
-        replies = PostReply.objects.filter(parent=parent_id).order_by('created_at')
-        serializer = PostReplySerializer(replies)
+    def get(self, request):
+        replies = PostReply.objects.filter(
+            is_reply=True).order_by('created_at')
+        serializer = PostReplySerializer(replies, many=True)
         return Response(serializer.data)
-
 
