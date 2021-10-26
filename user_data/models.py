@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFit
 
-
 class UserProfile(models.Model):
     user = models.OneToOneField(
         User,
@@ -12,8 +11,8 @@ class UserProfile(models.Model):
     )
     position = models.CharField(max_length=255, blank=True)
     bio = models.TextField(blank=True)
-    image = ProcessedImageField(default='media/profilePics/default.jpg',
-                                upload_to='media/profilePics',
+    image = ProcessedImageField(default='profilePics/default.jpg',
+                                upload_to='profilePics',
                                 processors=[ResizeToFit(500, 500)],
                                 format='JPEG',
                                 options={'quality': 100}
