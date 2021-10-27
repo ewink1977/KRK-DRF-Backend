@@ -9,6 +9,7 @@ class PostAuthorSerializer(serializers.ModelSerializer):
         depth = 1
         fields = ('id', 'username', 'first_name', 'last_name', 'user_profile')
 
+
 class PostSerializer(serializers.ModelSerializer):
     author = PostAuthorSerializer(read_only=True)
 
@@ -25,6 +26,7 @@ class PostReplySerializer(serializers.ModelSerializer):
         model = PostReply
         fields = ('id', 'parent', 'author', 'likes', 'content', 'priority',
                   'department', 'is_reply', 'created_at')
+
 
 class AddPostSerializer(serializers.ModelSerializer):
     class Meta:

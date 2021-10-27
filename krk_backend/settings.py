@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user_data.apps.UserDataConfig',
     'posts.apps.PostsConfig',
+    'events.apps.EventsConfig',
     'imagekit',
     'rest_framework',
     'knox',
